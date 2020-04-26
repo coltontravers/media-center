@@ -23,7 +23,10 @@
         "import/prefer-default-export": "off",
         "import/no-named-as-default": "off",
         "no-plusplus": "off",
-        "react/require-default-props": "off"
+        "react/require-default-props": "off",
+        "react/state-in-constructor": "off",
+        "react/static-property-placement": "off",
+        "react/jsx-props-no-spreading": "off"
     },
     "env": {
         "jest": true

@@ -7,7 +7,7 @@ import PageWrapper from "./pages";
 import GlobalStyles from "./styles";
 
 const queryConfig = {
-    suspense: true,
+    suspense: true
 };
 
 const App = () => (

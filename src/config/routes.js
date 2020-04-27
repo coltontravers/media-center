@@ -10,7 +10,7 @@ const routes = [
         component: Home,
         sidebarEnabled: true,
         icon: faHome,
-        exact: true,
+        exact: true
     },
     {
         path: "/library",
@@ -18,8 +18,8 @@ const routes = [
         description: "Library",
         component: Library,
         sidebarEnabled: true,
-        icon: faUsers,
-    },
+        icon: faUsers
+    }
 ];
 
 export default routes;

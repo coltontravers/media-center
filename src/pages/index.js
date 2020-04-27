@@ -19,12 +19,12 @@ const Page = ({ route: { sidebarEnabled, component: Component } }) => {
 Page.propTypes = {
     route: PropTypes.shape({
         sidebarEnabled: PropTypes.bool.isRequired,
-        component: PropTypes.elementType.isRequired,
-    }),
+        component: PropTypes.elementType.isRequired
+    })
 };
 
 Page.defaultProps = {
-    route: { sidebarEnabled: false },
+    route: { sidebarEnabled: false }
 };
 
 export default Page;

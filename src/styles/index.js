@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import * as primary from "./primary";
 
 const styles = {
-    ...primary,
+    ...primary
 };
 
 const GlobalStyles = createGlobalStyle`

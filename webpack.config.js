@@ -24,7 +24,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         contentBase: path.resolve(__dirname, "public"),
-        onListening: server => {
+        onListening: (server) => {
             const { port, address } = server.listeningApp.address();
 
             // eslint-disable-next-line no-console

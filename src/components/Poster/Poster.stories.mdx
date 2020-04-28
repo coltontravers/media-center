@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean } from "@storybook/addon-knobs";
+import Poster from "./Poster.jsx";
+
+export const mediaData = {
+    title: "I Am Legend",
+    poster:
+        "https://image.tmdb.org/t/p/original/2ibBdwCvmKu0wRiO6Yanlj8tUk9.jpg",
+    overview:
+        "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone."
+};
+
+<Meta title="Poster" component={Poster} />
+
+<Preview>
+    <Story name="default">
+        <Poster expanded={false} metadata={mediaData} />
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Poster} />

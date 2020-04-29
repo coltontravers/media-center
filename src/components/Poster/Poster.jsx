@@ -1,19 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
 import {
     StyledPoster,
     StyledBackground,
-    StyledBackgroundWrapper
+    StyledMetadata
 } from "./Poster.styled";
 
 const Poster = ({ expanded, metadata }) => {
-    const { title, poster } = metadata;
+    const { title, overview, poster } = metadata;
 
     return (
         <StyledPoster expanded={expanded}>
-            <StyledBackgroundWrapper>
-                <StyledBackground poster={poster} />
-            </StyledBackgroundWrapper>
+            <StyledBackground src={poster} />
+            {expanded && (
+                <StyledMetadata>
+                    <Heading>{title}</Heading>
+                    <Text>{overview}</Text>
+                </StyledMetadata>
+            )}
         </StyledPoster>
     );
 };

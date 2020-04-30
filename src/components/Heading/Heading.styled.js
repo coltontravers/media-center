@@ -6,4 +6,5 @@ export const StyledHeading = styled(({ component, ...props }) =>
 )`
     font-weight: ${({ weight }) => (weight === "normal" ? "normal" : "bold")};
     color: ${({ color }) => color};
+    margin: 0;
 `;

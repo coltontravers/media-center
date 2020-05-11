@@ -1,6 +1,8 @@
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 import { boolean } from "@storybook/addon-knobs";
 import Poster from "./Poster.jsx";
+import Flex from "../layout/Flex/Flex.jsx";
+import Grid from "../layout/Grid/Grid.jsx";
 
 export const mediaData = {
     title: "I Am Legend",
@@ -12,11 +14,89 @@ export const mediaData = {
         "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone."
 };
 
+export const mediaData2 = {
+    title: "Ned's",
+    poster:
+        "https://artworks.thetvdb.com/banners/posters/79821-2.jpg",
+    expandedBackground:
+        "https://image.tmdb.org/t/p/original/xHWB9SdYRFV3nw1O0iL6GTedQQY.jpg",
+    overview:
+        "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone."
+};
+
 <Meta title="Poster" component={Poster} />
 
 <Preview>
     <Story name="default">
-        <Poster expanded={boolean("expanded", false)} metadata={mediaData} />
+        <div style={{position: "relative"}}>
+            <Poster expanded={boolean("expanded", false)} metadata={mediaData} />
+        </div>
+    </Story>
+</Preview>
+
+## Grid of posters
+
+// repeat(auto-fit, minmax(40vh, auto))
+// repeat( auto-fit, minmax(40vh, 1fr) )
+// repeat( auto-fit, minmax(auto, 0))
+// repeat(auto-fit, minmax(26.5vmin, 1fr))
+// repeat(auto-fill,minmax(26.5vh,max-content))
+
+/\*
+The trick I think is getting this to work, but calcualting what the second param (800px)
+should be. That accounts for the biggest size a poster can be when expanded, but then it assumes
+that all of them can be expanded at once, which isn't the case.
+
+    grid-template-columns: repeat( auto-fit, minmax(40vh, 800px) );
+
+\*/
+
+
+<Preview>
+    <Story name="grid of posters">
+        <Grid columns="repeat(auto-fill,minmax(min-content,min(40vh, 800px)))" gridGap="2em 0">
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster expanded={false} metadata={mediaData2} />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
+        </Grid>
     </Story>
 </Preview>
 

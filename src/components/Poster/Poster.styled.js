@@ -8,27 +8,66 @@ export const StyledBackgroundWrapper = styled.div`
         rgba(0, 0, 0, 0) 80%,
         rgba(0, 0, 0, 0.65) 100%
     );
+    width: 100%;
+    height: 100%;
+`;
+
+export const StyledPosterWrapper = styled.div`
+    overflow: hidden;
+    // padding-top: 40vh;
+    padding-top: 150%;
+    // width: 26.5vh;
+    // width: 100%;
+    // height: 40vh;
+    // height: 60vh;
+    // min-height: 200px;
+    min-width: 150px;
+    position: relative;
+
+    ${({ expanded }) =>
+        expanded &&
+        `
+        padding-top: 0;
+        // grid-column: span 2/5;
+        // width: auto;
+    // width: 40vw;
+    // grid-column: span 4 / 2;
+    // grid-column: span 3;
+    // max-width: 800px;
+    // width: 100%;
+    // min-width: 800px;
+    // width: max-content;
+    // grid-column: span 3;
+    // grid-column: span 1 / 4;
+    grid-column-end: span 3;
+    grid-row-end: span 1;
+    // grid-column-start: span -2;
+    `}
 `;
 
 export const StyledPoster = styled.div`
     display: flex;
+    position: absolute;
+    top: 0;
+    align-items: center;
     overflow: hidden;
-    height: 60vh;
+    height: 100%;
     background-color: ${({ expandedBgColor }) => expandedBgColor};
-    // transition: width .2s ease-in;
-    transition: width 1s ease-in-out;
+    width: 100%;
+    cursor: pointer;
+    transition: width .25s ease-in-out;
 
-    ${({ expanded }) => `
-    width: ${
-        expanded ? "40vw" : "40vh"
-    }; // The vh is  to get the aspect ratio correct. There may be a better way.
-    `}
+    ${({ expanded }) =>
+        expanded &&
+        `
+        width: 100%;
+    // max-width: 800px;
 
     ${StyledBackgroundWrapper} {
-        ${({ expanded }) => `
-    width: ${expanded ? "50%" : "100%"};
-    `}
+        width: 50%;
     }
+    }
+    `}
 
     span {
         --max-lines: 20;
@@ -75,12 +114,26 @@ export const StyledBackground = styled.img`
 `;
 
 export const StyledMetadata = styled.div`
+    transform: scale(0);
+    ${({ expanded }) => `
+    ${
+        expanded &&
+        `
+    transform: scale(1.0);
+    `
+    }
+    visibility: ${expanded ? "visible" : "hidden"};
+    // display: ${expanded ? "flex" : "none"};
+    // transform: ${expanded ? "scale(1)" : "scale(0)"};
+    padding: ${expanded ? "1em" : "0"};
+    width: ${expanded ? "50%" : "0"};
+
+    `}
+    display: flex;
     --lh: 1.5rem;
     line-height: var(--lh);
-    width: 50%;
-    display: flex;
     flex-direction: column;
-    padding: 1em;
+    transition: transform 0.45s ease-in-out;
 `;
 
 export const StyledTitle = styled.div`
@@ -89,3 +142,15 @@ export const StyledTitle = styled.div`
 `;
 
 export const StyledOverview = styled.div``;
+
+export const StyledMoreInfo = styled.div`
+    height: 300px;
+
+    > * {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 300px;
+        background-color: red;
+    }
+`;

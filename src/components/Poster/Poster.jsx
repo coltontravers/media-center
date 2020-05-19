@@ -13,26 +13,30 @@ import {
 import colors from "../../constants/colors";
 import debounce from "../../helpers/debounce";
 
-const handleMouseEnter = debounce((setIsExpanded) => {
-    setIsExpanded(true);
-}, 300);
+const handleMouseEnter = debounce(
+    (setIsExpanded, inGrid) => inGrid && setIsExpanded(true),
+    300
+);
 
-const handleMouseLeave = (setIsExpanded) => setIsExpanded(false);
+const handleMouseLeave = (setIsExpanded, inGrid) =>
+    inGrid && setIsExpanded(false);
 
-const Poster = ({ expanded, expandedBgColor, metadata }) => {
+const Poster = ({ expanded, expandedBgColor, metadata, width, inGrid }) => {
     const [isExpanded, setIsExpanded] = useState(expanded);
     const { title, overview, poster, expandedBackground } = metadata;
-    // const handleMouseEnter = debounce(setIsExpanded(true), 300);
-
-    // const handleMouseLeave = setIsExpanded(false);
 
     return (
-        <StyledPosterWrapper expanded={isExpanded}>
+        <StyledPosterWrapper
+            expanded={isExpanded}
+            width={width}
+            inGrid={inGrid}
+        >
             <StyledPoster
                 expanded={isExpanded}
+                inGrid={inGrid}
                 expandedBgColor={expandedBgColor}
-                onMouseEnter={() => handleMouseEnter(setIsExpanded)}
-                onMouseLeave={() => handleMouseLeave(setIsExpanded)}
+                onMouseEnter={() => handleMouseEnter(setIsExpanded, inGrid)}
+                onMouseLeave={() => handleMouseLeave(setIsExpanded, inGrid)}
             >
                 {/* <StyledBackgroundWrapper>
                 <StyledBackground poster={poster} expanded={expanded} />
@@ -42,7 +46,7 @@ const Poster = ({ expanded, expandedBgColor, metadata }) => {
                         src={isExpanded ? expandedBackground : poster}
                     />
                 </StyledBackgroundWrapper>
-                <StyledMetadata expanded={isExpanded}>
+                <StyledMetadata expanded={isExpanded} inGrid={inGrid}>
                     <Heading color={colors.white} weight="bold">
                         {title}
                     </Heading>
@@ -64,12 +68,14 @@ Poster.propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     metadata: PropTypes.object.isRequired,
     expanded: PropTypes.bool,
-    expandedBgColor: PropTypes.string
+    expandedBgColor: PropTypes.string,
+    width: PropTypes.string
 };
 
 Poster.defaultProps = {
     expanded: false,
-    expandedBgColor: colors.black
+    expandedBgColor: colors.black,
+    width: "auto"
 };
 
 export default Poster;

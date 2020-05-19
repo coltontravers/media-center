@@ -17,7 +17,10 @@ import { buttonSizes, buttonThemes } from "../../../constants/button";
 
 <Preview>
     <Story name="disabled">
-        <Button disabled style={{ minWidth: "200px!important" }}>
+        <Button
+            disabled={boolean("disabled", true)}
+            style={{ minWidth: "200px!important" }}
+        >
             A Disabled Button
         </Button>
     </Story>

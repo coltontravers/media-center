@@ -13,14 +13,9 @@ export const StyledBackgroundWrapper = styled.div`
 `;
 
 export const StyledPosterWrapper = styled.div`
+    width: ${({ width }) => width};
     overflow: hidden;
-    // padding-top: 40vh;
     padding-top: 150%;
-    // width: 26.5vh;
-    // width: 100%;
-    // height: 40vh;
-    // height: 60vh;
-    // min-height: 200px;
     min-width: 150px;
     position: relative;
 
@@ -28,17 +23,6 @@ export const StyledPosterWrapper = styled.div`
         expanded &&
         `
         padding-top: 0;
-        // grid-column: span 2/5;
-        // width: auto;
-    // width: 40vw;
-    // grid-column: span 4 / 2;
-    // grid-column: span 3;
-    // max-width: 800px;
-    // width: 100%;
-    // min-width: 800px;
-    // width: max-content;
-    // grid-column: span 3;
-    // grid-column: span 1 / 4;
     grid-column-end: span 3;
     grid-row-end: span 1;
     // grid-column-start: span -2;
@@ -55,56 +39,44 @@ export const StyledPoster = styled.div`
     background-color: ${({ expandedBgColor }) => expandedBgColor};
     width: 100%;
     cursor: pointer;
-    transition: width .25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+
+    span {
+        --max-lines: 20;
+        position: relative;
+        max-height: calc(var(--lh) * var(--max-lines));
+        overflow: hidden;
+        padding-right: 1rem; /* space for ellipsis */
+        right: 0;
+
+        ::before {
+            position: absolute;
+            content: "...";
+            bottom: 0;
+            right: 0;
+        }
+
+        ::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            /* missing bottom on purpose*/
+            width: 1rem;
+            height: 1rem;
+            background: white;
+        }
+    }
 
     ${({ expanded }) =>
         expanded &&
         `
         width: 100%;
-    // max-width: 800px;
-
-    ${StyledBackgroundWrapper} {
-        width: 50%;
-    }
-    }
-    `}
-
-    span {
-        --max-lines: 20;
-  position: relative;
-  max-height: calc(var(--lh) * var(--max-lines));
-  overflow: hidden;
-  padding-right: 1rem; /* space for ellipsis */
-  right: 0;
-
-  ::before {
-    position: absolute;
-    content: "...";
-    /* tempting... but shows when lines == content */
-    /* top: calc(var(--lh) * (var(--max-lines) - 1)); */
-    
-    /*
-    inset-block-end: 0;
-    inset-inline-end: 0;
-    */
-    bottom: 0;
-    right: 0;
-  }
-
-  ::after {
-    content: "";
-    position: absolute;
-    /*
-    inset-inline-end: 0;
-    */
-    right: 0;
-    /* missing bottom on purpose*/
-    width: 1rem;
-    height: 1rem;
-    background: white;
-  }
+        
+        ${StyledBackgroundWrapper} {
+            width: 50%;
         }
     }
+    `}
 `;
 
 export const StyledBackground = styled.img`
@@ -115,20 +87,21 @@ export const StyledBackground = styled.img`
 
 export const StyledMetadata = styled.div`
     transform: scale(0);
+    padding: 0;
+    width: 0;
+
     ${({ expanded }) => `
     ${
         expanded &&
         `
-    transform: scale(1.0);
-    `
+        transform: scale(1.0);
+        visibility: visible;
+        padding: 1em;
+         width: "50%";
+        `
     }
-    visibility: ${expanded ? "visible" : "hidden"};
-    // display: ${expanded ? "flex" : "none"};
-    // transform: ${expanded ? "scale(1)" : "scale(0)"};
-    padding: ${expanded ? "1em" : "0"};
-    width: ${expanded ? "50%" : "0"};
-
     `}
+
     display: flex;
     --lh: 1.5rem;
     line-height: var(--lh);

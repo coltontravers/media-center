@@ -48,6 +48,7 @@ module.exports = {
             );
         },
         stats: "minimal",
-        noInfo: true
+        noInfo: true,
+        host: "0.0.0.0"
     }
 };

@@ -16,7 +16,7 @@ export const StyledPosterWrapper = styled.div`
     width: ${({ width }) => width};
     overflow: hidden;
     padding-top: 150%;
-    min-width: 150px;
+    // min-width: 150px;
     position: relative;
 
     ${({ expanded }) =>

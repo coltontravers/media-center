@@ -17,16 +17,41 @@ const mediaData = {
         "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone."
 };
 
+const responsiveSettings = [
+    {
+        breakpoint: 1024,
+        settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            // infinite: true,
+            dots: true
+        }
+    },
+    {
+        breakpoint: 600,
+        settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4
+        }
+    },
+    {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+        }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+];
+
 export const Home = () => {
     return (
         <>
             <Spacing mb={gutters.double}>
                 <Spacing my={gutters.half}>
-                    <Heading
-                        level="h5"
-                        weight={fontWeights.bold}
-                        color={colors.gray.normal}
-                    >
+                    <Heading level="h5" color={colors.gray.normal} outline>
                         On deck
                     </Heading>
                 </Spacing>
@@ -39,6 +64,7 @@ export const Home = () => {
                     adaptiveHeight
                     adaptiveWidth
                     slideSpacing="20px"
+                    responsive={responsiveSettings}
                 >
                     <Poster
                         expanded={false}

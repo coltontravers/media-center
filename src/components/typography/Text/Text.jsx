@@ -3,62 +3,31 @@ import PropTypes from "prop-types";
 import colors from "../../../constants/colors";
 import { StyledText } from "./Text.styled";
 
-// Replace with constants
-const sizes = [
-    {
-        name: "xsmall",
-        value: ".6rem"
-    },
-    {
-        name: "small",
-        value: ".8rem"
-    },
-    {
-        name: "normal",
-        value: "1rem"
-    },
-    {
-        name: "large",
-        value: "1.2rem"
-    }
-];
-
-const weights = [
-    {
-        name: "normal",
-        value: "normal"
-    },
-    {
-        name: "strong",
-        value: "bold"
-    }
-];
-
-const Text = ({ size, weight, color, children }) => {
+const Text = ({ size, weight, color, outline, children }) => {
     return (
-        <StyledText
-            size={size}
-            weight={weight}
-            color={color}
-            sizes={sizes}
-            weights={weights}
-        >
+        <StyledText size={size} weight={weight} color={color} outline={outline}>
             {children}
         </StyledText>
     );
 };
 
-Text.propTypes = {
+export const textProps = {
     size: PropTypes.string,
     weight: PropTypes.string,
     color: PropTypes.string,
+    outline: PropTypes.bool,
     children: PropTypes.node
 };
 
-Text.defaultProps = {
+export const defaultTextProps = {
     size: "normal",
-    weight: "normal",
-    color: colors.black
+    weight: "regular",
+    color: colors.black,
+    outline: false
 };
+
+Text.propTypes = textProps;
+
+Text.defaultProps = defaultTextProps;
 
 export default Text;

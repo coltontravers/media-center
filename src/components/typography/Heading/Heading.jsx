@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from "react";
 import PropTypes from "prop-types";
-import colors from "../../../constants/colors";
+import { textProps, defaultTextProps } from "../Text/Text";
 import { StyledHeading } from "./Heading.styled";
 
 const levels = [
@@ -31,7 +31,7 @@ const levels = [
     }
 ];
 
-const Heading = ({ level, weight, color, children }) => {
+const Heading = ({ level, children, ...restProps }) => {
     const foundLevel = levels.find(
         (currentLevel) => currentLevel.name === level
     );
@@ -39,9 +39,8 @@ const Heading = ({ level, weight, color, children }) => {
     return (
         <StyledHeading
             component={foundLevel.component}
-            weight={weight}
-            color={color}
             levels={levels}
+            {...restProps}
         >
             {children}
         </StyledHeading>
@@ -49,16 +48,14 @@ const Heading = ({ level, weight, color, children }) => {
 };
 
 Heading.propTypes = {
-    level: PropTypes.string,
-    weight: PropTypes.string,
-    color: PropTypes.string,
-    children: PropTypes.node
+    ...textProps,
+    level: PropTypes.string
 };
 
 Heading.defaultProps = {
+    ...defaultTextProps,
     level: "h1",
-    weight: "normal",
-    color: colors.black
+    weight: "bold"
 };
 
 export default Heading;

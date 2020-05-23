@@ -14,6 +14,20 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ["babel-loader", "eslint-loader"]
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+                use: {
+                    loader: "url-loader",
+                    options: {
+                        limit: 100000,
+                        name: "[name].[ext]"
+                    }
+                }
             }
         ]
     },

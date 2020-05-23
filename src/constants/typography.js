@@ -18,4 +18,11 @@ export const svgSizes = {
     extraLarge: valueToRem(defaultFontSize * 2.2)
 };
 
+export const fontWeights = {
+    light: 300,
+    regular: 400,
+    bold: 700,
+    extraBold: 900
+};
+
 export default fontSizes;

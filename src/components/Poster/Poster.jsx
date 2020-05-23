@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import Heading from "../Heading/Heading";
-import Text from "../Text/Text";
+import Heading from "../typography/Heading/Heading";
+import Text from "../typography/Text/Text";
 import {
     StyledPoster,
     StyledBackgroundWrapper,

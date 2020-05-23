@@ -6,7 +6,7 @@ const defaultSecondayColor = "#a2d5f2";
 
 const defaultTertiaryColor = "#ff7e67";
 
-const defaultGray = "#fafafa";
+const defaultGray = "#9b9b9b";
 
 const defaultBorderColor = "#000000";
 
@@ -16,9 +16,9 @@ export const colors = {
     warning: "orange",
     success: "green",
     gray: {
-        light: lighten(0.05, defaultGray),
+        light: lighten(0.25, defaultGray),
         normal: defaultGray,
-        dark: darken(0.05, defaultGray)
+        dark: darken(0.25, defaultGray)
     },
     primary: {
         light: lighten(0.2, defaultPrimaryColor),

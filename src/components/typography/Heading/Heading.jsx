@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from "react";
 import PropTypes from "prop-types";
-import colors from "../../constants/colors";
+import colors from "../../../constants/colors";
 import { StyledHeading } from "./Heading.styled";
 
 const levels = [

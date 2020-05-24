@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { darken } from "polished";
 import boxShadows from "../../constants/boxShadows";
+import splitColorKeys from "../../helpers/splitColorKeys";
 
 export const StyledButton = styled.button`
     padding: ${({ size }) => size.padding};
     background: ${({ background, theme }) => background || theme.background};
-    color: ${({ color }) => color};
+    color: ${({ color }) => splitColorKeys(color)};
     width: ${({ fullWidth, width }) => (fullWidth ? "100%" : width)};
     min-width: ${({ minWidth }) => minWidth};
     border-radius: ${({ round }) => round && "25px"};

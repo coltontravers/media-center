@@ -1,10 +1,7 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import Poster from "../../components/Poster/Poster";
 import Heading from "../../components/typography/Heading/Heading";
-import { fontWeights } from "../../constants/typography";
-import colors from "../../constants/colors";
-import gutters from "../../constants/gutters";
 import Spacing from "../../components/layout/Spacing/Spacing";
 
 const mediaData = {
@@ -46,12 +43,12 @@ const responsiveSettings = [
     // instead of a settings object
 ];
 
-export const Home = () => {
+export const Home: FunctionComponent = () => {
     return (
         <>
-            <Spacing mb={gutters.double}>
-                <Spacing my={gutters.half}>
-                    <Heading level="h5" color={colors.gray.normal} outline>
+            <Spacing mb="double">
+                <Spacing my="half">
+                    <Heading variant="h5" color="secondary.light" outline>
                         On deck
                     </Heading>
                 </Spacing>
@@ -62,7 +59,7 @@ export const Home = () => {
                     infinite={false}
                     rows={1}
                     adaptiveHeight
-                    adaptiveWidth
+                    // adaptiveWidth
                     slideSpacing="20px"
                     responsive={responsiveSettings}
                 >
@@ -149,13 +146,9 @@ export const Home = () => {
                 </Carousel>
             </Spacing>
 
-            <Spacing mb={gutters.double}>
-                <Spacing my={gutters.half}>
-                    <Heading
-                        level="h5"
-                        weight={fontWeights.bold}
-                        color={colors.gray.normal}
-                    >
+            <Spacing mb="double">
+                <Spacing my="half">
+                    <Heading variant="h5" weight="bold" color="gray.normal">
                         Recently Added - Movies
                     </Heading>
                 </Spacing>
@@ -166,7 +159,6 @@ export const Home = () => {
                     infinite={false}
                     rows={1}
                     adaptiveHeight
-                    adaptiveWidth
                     slideSpacing="20px"
                 >
                     <Poster

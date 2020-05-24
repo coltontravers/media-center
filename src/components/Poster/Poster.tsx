@@ -1,27 +1,38 @@
-import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
+import React, { FunctionComponent, useState } from "react";
 import Heading from "../typography/Heading/Heading";
 import Text from "../typography/Text/Text";
+import PosterTypes, { defaultProps } from "./posterTypes";
 import {
     StyledPoster,
     StyledBackgroundWrapper,
     StyledBackground,
     StyledMetadata,
-    StyledMoreInfo,
     StyledPosterWrapper
 } from "./Poster.styled";
-import colors from "../../constants/colors";
 import debounce from "../../helpers/debounce";
 
 const handleMouseEnter = debounce(
-    (setIsExpanded, inGrid) => inGrid && setIsExpanded(true),
+    (
+        setIsExpanded: (
+            value: React.SetStateAction<boolean | undefined>
+        ) => void,
+        inGrid: boolean
+    ) => inGrid && setIsExpanded(true),
     300
 );
 
-const handleMouseLeave = (setIsExpanded, inGrid) =>
-    inGrid && setIsExpanded(false);
+const handleMouseLeave = (
+    setIsExpanded: (value: React.SetStateAction<boolean | undefined>) => void,
+    inGrid: boolean
+) => inGrid && setIsExpanded(false);
 
-const Poster = ({ expanded, expandedBgColor, metadata, width, inGrid }) => {
+const Poster: FunctionComponent<PosterTypes> = ({
+    expanded,
+    expandedBgColor,
+    metadata,
+    width,
+    inGrid = false
+}) => {
     const [isExpanded, setIsExpanded] = useState(expanded);
     const { title, overview, poster, expandedBackground } = metadata;
 
@@ -47,10 +58,10 @@ const Poster = ({ expanded, expandedBgColor, metadata, width, inGrid }) => {
                     />
                 </StyledBackgroundWrapper>
                 <StyledMetadata expanded={isExpanded} inGrid={inGrid}>
-                    <Heading color={colors.white} weight="bold">
+                    <Heading color="white" weight="bold">
                         {title}
                     </Heading>
-                    <Text color={colors.white}>{overview}</Text>
+                    <Text color="white">{overview}</Text>
                 </StyledMetadata>
             </StyledPoster>
 
@@ -63,19 +74,6 @@ const Poster = ({ expanded, expandedBgColor, metadata, width, inGrid }) => {
     );
 };
 
-// Should probably add a ratio prop. It can use that to determine the height/width of the poster then.
-Poster.propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
-    metadata: PropTypes.object.isRequired,
-    expanded: PropTypes.bool,
-    expandedBgColor: PropTypes.string,
-    width: PropTypes.string
-};
-
-Poster.defaultProps = {
-    expanded: false,
-    expandedBgColor: colors.black,
-    width: "auto"
-};
+Poster.defaultProps = defaultProps;
 
 export default Poster;

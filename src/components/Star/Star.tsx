@@ -1,10 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { FunctionComponent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import StarTypes, { defaultProps } from "./starTypes";
 import { StyledStar } from "./Star.styled";
 
-const Star = ({ filled, fillColor, backgroundColor, size }) => {
+const Star: FunctionComponent<StarTypes> = ({
+    filled,
+    fillColor,
+    backgroundColor,
+    size
+}) => {
     return (
         <>
             <StyledStar filled={filled}>
@@ -40,18 +45,6 @@ const Star = ({ filled, fillColor, backgroundColor, size }) => {
     );
 };
 
-Star.propTypes = {
-    filled: PropTypes.string,
-    fillColor: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    size: PropTypes.string
-};
-
-Star.defaultProps = {
-    filled: "100%",
-    fillColor: "rgb(254, 229, 0)",
-    backgroundColor: "rgb(237, 237, 237)",
-    size: "4x"
-};
+Star.defaultProps = defaultProps;
 
 export default Star;

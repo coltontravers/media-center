@@ -16,6 +16,11 @@ module.exports = {
                 use: ["babel-loader", "eslint-loader"]
             },
             {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: ["ts-loader", "eslint-loader"]
+            },
+            {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"]
             },
@@ -32,7 +37,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ["*", ".js", ".jsx"]
+        extensions: ["*", ".js", ".jsx", ".ts", ".tsx"]
     },
     plugins: [new PrettierPlugin()],
     devServer: {
@@ -49,6 +54,6 @@ module.exports = {
         },
         stats: "minimal",
         noInfo: true,
-        host: "0.0.0.0"
+        host: "127.0.0.1"
     }
 };

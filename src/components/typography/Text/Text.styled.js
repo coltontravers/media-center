@@ -1,16 +1,18 @@
 import styled from "styled-components";
+import { darken } from "polished";
 import { fontSizes, fontWeights } from "../../../constants/typography";
+import splitColorKeys from "../../../helpers/splitColorKeys";
 
 export const StyledText = styled.span`
     font-size: ${({ size }) => fontSizes[size]};
     font-weight: ${({ weight }) => fontWeights[weight]};
-    color: ${({ color }) => color};
     text-overflow: ${({ truncate }) => truncate && "ellipsis"};
-    ${({ outline }) =>
+    color: ${({ color }) => splitColorKeys(color)};
+    ${({ outline, color }) =>
         outline &&
         `
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #6b6b6b;
+        -webkit-text-stroke-color: ${darken(0.3, splitColorKeys(color))};
     `};
     overflow: hidden;
     margin: 0;

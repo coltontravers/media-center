@@ -1,6 +1,6 @@
 import colors, { colorsTypesWithString } from "../constants/colors";
 
-export const splitColorKeys = (stringKeys: colorsTypesWithString): unknown => {
+export const splitColorKeys = (stringKeys: colorsTypesWithString): string => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const [category, shade]: [keyof typeof colors, string] = stringKeys.split(
@@ -18,6 +18,8 @@ export const splitColorKeys = (stringKeys: colorsTypesWithString): unknown => {
         return colors[category][shade];
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return colors[category];
 };
 

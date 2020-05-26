@@ -1,14 +1,12 @@
 import { lighten, darken } from "polished";
 
-const defaultPrimaryColor = "#07689f";
-
-const defaultSecondayColor = "#a2d5f2";
-
-const defaultTertiaryColor = "#ff7e67";
-
-const defaultGray = "#9b9b9b";
-
-const defaultBorderColor = "#000000";
+const defaultColors = {
+    primary: "#07689f",
+    secondary: "#a2d5f2",
+    tertiary: "#ff7e67",
+    gray: "#9b9b9b",
+    border: "#000000"
+};
 
 export const colors = {
     white: "#ffffff",
@@ -16,29 +14,29 @@ export const colors = {
     warning: "orange",
     success: "green",
     gray: {
-        light: lighten(0.25, defaultGray),
-        normal: defaultGray,
-        dark: darken(0.25, defaultGray)
+        light: lighten(0.25, defaultColors.gray),
+        normal: defaultColors.gray,
+        dark: darken(0.25, defaultColors.gray)
     },
     primary: {
-        light: lighten(0.2, defaultPrimaryColor),
-        normal: defaultPrimaryColor,
-        dark: darken(0.2, defaultPrimaryColor)
+        light: lighten(0.2, defaultColors.primary),
+        normal: defaultColors.primary,
+        dark: darken(0.2, defaultColors.primary)
     },
     secondary: {
-        light: lighten(0.1, defaultSecondayColor),
-        normal: defaultSecondayColor,
-        dark: darken(0.1, defaultSecondayColor)
+        light: lighten(0.1, defaultColors.secondary),
+        normal: defaultColors.secondary,
+        dark: darken(0.1, defaultColors.secondary)
     },
     tertiary: {
-        light: lighten(0.1, defaultTertiaryColor),
-        normal: defaultTertiaryColor,
-        dark: darken(0.1, defaultTertiaryColor)
+        light: lighten(0.1, defaultColors.tertiary),
+        normal: defaultColors.tertiary,
+        dark: darken(0.1, defaultColors.tertiary)
     },
     borders: {
-        light: lighten(0.5, defaultBorderColor),
-        normal: lighten(0.2, defaultBorderColor),
-        dark: defaultBorderColor
+        light: lighten(0.5, defaultColors.border),
+        normal: lighten(0.2, defaultColors.border),
+        dark: defaultColors.border
     }
 };
 

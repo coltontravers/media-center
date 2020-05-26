@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import posterTypes from "./posterTypes";
 
 export const StyledBackgroundWrapper = styled.div`
     background: -webkit-linear-gradient(
@@ -12,24 +13,22 @@ export const StyledBackgroundWrapper = styled.div`
     height: 100%;
 `;
 
-export const StyledPosterWrapper = styled.div`
+export const StyledPosterWrapper = styled.div<posterTypes>`
     width: ${({ width }) => width};
     overflow: hidden;
     padding-top: 150%;
-    // min-width: 150px;
     position: relative;
 
     ${({ expanded }) =>
         expanded &&
         `
         padding-top: 0;
-    grid-column-end: span 3;
-    grid-row-end: span 1;
-    // grid-column-start: span -2;
+        grid-column-end: span 3;
+        grid-row-end: span 1;
     `}
 `;
 
-export const StyledPoster = styled.div`
+export const StyledPoster = styled.div<posterTypes>`
     display: flex;
     position: absolute;
     top: 0;
@@ -85,21 +84,18 @@ export const StyledBackground = styled.img`
     object-fit: cover;
 `;
 
-export const StyledMetadata = styled.div`
+export const StyledMetadata = styled.div<posterTypes>`
     transform: scale(0);
     padding: 0;
     width: 0;
 
-    ${({ expanded }) => `
-    ${
+    ${({ expanded }) =>
         expanded &&
         `
         transform: scale(1.0);
         visibility: visible;
         padding: 1em;
-         width: "50%";
-        `
-    }
+        width: "50%";
     `}
 
     display: flex;

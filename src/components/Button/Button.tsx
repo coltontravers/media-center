@@ -16,7 +16,7 @@ export const Button: FunctionComponent<ButtonTypes> = ({
     children,
     ...restProps
 }) => {
-    const itemRef = useRef<Element | undefined>(undefined);
+    const itemRef = useRef<HTMLButtonElement | null>(null);
     const [itemWidth, setItemWidth] = useState<string>("0");
 
     // We set the item width so if the button goes into a loading state, then it will retain the same width.

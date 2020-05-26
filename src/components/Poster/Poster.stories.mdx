@@ -1,8 +1,8 @@
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 import { boolean } from "@storybook/addon-knobs";
-import Poster from "./Poster.jsx";
-import Flex from "../layout/Flex/Flex.jsx";
-import Grid from "../layout/Grid/Grid.jsx";
+import Poster from "./Poster";
+import Flex from "../layout/Flex/Flex";
+import Grid from "../layout/Grid/Grid";
 
 export const mediaData = {
     title: "I Am Legend",
@@ -16,8 +16,7 @@ export const mediaData = {
 
 export const mediaData2 = {
     title: "Ned's",
-    poster:
-        "https://artworks.thetvdb.com/banners/posters/79821-2.jpg",
+    poster: "https://artworks.thetvdb.com/banners/posters/79821-2.jpg",
     expandedBackground:
         "https://image.tmdb.org/t/p/original/xHWB9SdYRFV3nw1O0iL6GTedQQY.jpg",
     overview:
@@ -28,8 +27,11 @@ export const mediaData2 = {
 
 <Preview>
     <Story name="default">
-        <div style={{position: "relative"}}>
-            <Poster expanded={boolean("expanded", false)} metadata={mediaData} />
+        <div style={{ position: "relative" }}>
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+            />
         </div>
     </Story>
 </Preview>
@@ -51,10 +53,12 @@ that all of them can be expanded at once, which isn't the case.
 
 \*/
 
-
 <Preview>
     <Story name="grid of posters">
-        <Grid columns="repeat(auto-fill,minmax(min-content,min(40vh, 800px)))" gridGap="2em 0">
+        <Grid
+            columns="repeat(auto-fill,minmax(min-content,min(40vh, 800px)))"
+            gridGap="2em 0"
+        >
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}

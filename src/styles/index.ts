@@ -6,7 +6,7 @@ const styles = {
 };
 
 const GlobalStyles = createGlobalStyle`
-${Object.keys(styles).map((key) => styles[key])}
+    ${Object.keys(styles).map((key) => styles[key as keyof typeof styles])}
 `;
 
 export default GlobalStyles;

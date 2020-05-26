@@ -1,4 +1,4 @@
-import fontSizes from "./fontSizes";
+import fontSizes from "./typography";
 import gutters from "./gutters";
 import colors from "./colors";
 

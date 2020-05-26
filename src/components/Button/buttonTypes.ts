@@ -5,6 +5,7 @@ import { colorsTypesWithString } from "../../constants/colors";
 export default interface ButtonTypes {
     isLoading?: boolean;
     width?: string;
+    minWidth?: string | false;
     size?: keyof typeof buttonSizes;
     theme?: keyof typeof buttonThemes;
     background?: colorsTypesWithString;

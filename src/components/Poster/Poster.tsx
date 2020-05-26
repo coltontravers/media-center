@@ -34,14 +34,15 @@ const Poster: FunctionComponent<PosterTypes> = ({
     inGrid = false
 }) => {
     const [isExpanded, setIsExpanded] = useState(expanded);
+
+    if (!metadata) {
+        return null;
+    }
+
     const { title, overview, poster, expandedBackground } = metadata;
 
     return (
-        <StyledPosterWrapper
-            expanded={isExpanded}
-            width={width}
-            inGrid={inGrid}
-        >
+        <StyledPosterWrapper expanded={isExpanded} width={width}>
             <StyledPoster
                 expanded={isExpanded}
                 inGrid={inGrid}

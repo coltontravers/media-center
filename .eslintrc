@@ -3,7 +3,8 @@
         "airbnb",
         "prettier",
         "prettier/react",
-        "eslint-config-prettier"
+        "eslint-config-prettier",
+        "plugin:mdx/recommended"
     ],
     "parser": "babel-eslint",
     "plugins": ["react", "prettier"],
@@ -28,7 +29,14 @@
                 "tsconfigRootDir": "./"
             },
             "rules": {
-                "react/prop-types": 0
+                "react/prop-types": 0,
+                "@typescript-eslint/explicit-module-boundary-types": "off"
+            }
+        },
+        {
+            "files": ["*.test.tsx"],
+            "rules": {
+                "import/no-extraneous-dependencies": "off"
             }
         }
     ],

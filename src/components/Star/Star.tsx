@@ -12,7 +12,7 @@ const Star: FunctionComponent<StarTypes> = ({
 }) => {
     return (
         <>
-            <StyledStar filled={filled}>
+            <StyledStar>
                 <FontAwesomeIcon icon={faStar} size={size} />
             </StyledStar>
 

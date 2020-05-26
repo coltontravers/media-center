@@ -8,7 +8,7 @@ export interface Imetadata {
 }
 
 export default interface PosterTypes {
-    metadata: Imetadata;
+    metadata?: Imetadata;
     expanded?: boolean;
     expandedBgColor?: colorsTypesWithString;
     width?: string;

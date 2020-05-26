@@ -7,6 +7,7 @@ export default interface TextTypes {
     weight?: keyof typeof fontWeights;
     color?: colorsTypesWithString;
     outline?: boolean;
+    truncate?: boolean;
     children: ReactNode;
 }
 
@@ -15,5 +16,6 @@ export const defaultProps: TextTypes = {
     weight: "regular",
     color: "black",
     outline: false,
+    truncate: false,
     children: null
 };

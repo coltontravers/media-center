@@ -3,7 +3,7 @@ const path = require("path");
 const PrettierPlugin = require("prettier-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js"

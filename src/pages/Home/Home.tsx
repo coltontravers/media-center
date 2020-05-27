@@ -63,86 +63,22 @@ export const Home: FunctionComponent = () => {
                     slideSpacing="20px"
                     responsive={responsiveSettings}
                 >
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
                 </Carousel>
             </Spacing>
 
@@ -161,86 +97,22 @@ export const Home: FunctionComponent = () => {
                     adaptiveHeight
                     slideSpacing="20px"
                 >
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
-                    <Poster
-                        expanded={false}
-                        inGrid={false}
-                        metadata={mediaData}
-                    />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
+                    <Poster expanded={false} metadata={mediaData} />
                 </Carousel>
             </Spacing>
         </>

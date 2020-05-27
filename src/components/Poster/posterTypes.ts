@@ -12,18 +12,18 @@ export default interface PosterTypes {
     expanded?: boolean;
     expandedBgColor?: colorsTypesWithString;
     width?: string;
-    inGrid?: boolean;
+    fullWidth?: boolean;
 }
 
 export const defaultProps: PosterTypes = {
     expanded: false,
     expandedBgColor: "black",
-    width: "auto",
+    width: "15%",
     metadata: {
         title: "",
         overview: "",
         poster: "",
         expandedBackground: ""
     },
-    inGrid: false
+    fullWidth: false
 };

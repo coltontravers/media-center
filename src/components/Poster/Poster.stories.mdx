@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import Poster from "./Poster";
 import Flex from "../layout/Flex/Flex";
 import Grid from "../layout/Grid/Grid";
@@ -27,9 +27,10 @@ export const mediaData2 = {
 
 <Preview>
     <Story name="default">
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative", height: "100vh" }}>
             <Poster
                 expanded={boolean("expanded", false)}
+                width={text("width")}
                 metadata={mediaData}
             />
         </div>
@@ -62,43 +63,57 @@ that all of them can be expanded at once, which isn't the case.
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
-            />
-            <Poster expanded={false} metadata={mediaData2} />
-            <Poster
-                expanded={boolean("expanded", false)}
-                metadata={mediaData}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
-                metadata={mediaData}
+                metadata={mediaData2}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
+                fullWidth
             />
             <Poster
                 expanded={boolean("expanded", false)}
                 metadata={mediaData}
+                fullWidth
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+                fullWidth
+            />
+            <Poster
+                expanded={boolean("expanded", false)}
+                metadata={mediaData}
+                fullWidth
             />
         </Grid>
     </Story>

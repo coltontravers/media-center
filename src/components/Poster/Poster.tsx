@@ -1,13 +1,12 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import Heading from "../typography/Heading/Heading";
 import Text from "../typography/Text/Text";
 import PosterTypes, { defaultProps } from "./posterTypes";
 import {
-    StyledPoster,
-    StyledBackgroundWrapper,
-    StyledBackground,
+    StyledPosterContainer,
+    StyledPosterWrapper,
     StyledMetadata,
-    StyledPosterWrapper
+    StyledPoster
 } from "./Poster.styled";
 import debounce from "../../helpers/debounce";
 
@@ -16,22 +15,21 @@ const handleMouseEnter = debounce(
         setIsExpanded: (
             value: React.SetStateAction<boolean | undefined>
         ) => void,
-        inGrid: boolean
-    ) => inGrid && setIsExpanded(true),
+        fullWidth: boolean
+    ) => fullWidth && setIsExpanded(true),
     300
 );
 
 const handleMouseLeave = (
     setIsExpanded: (value: React.SetStateAction<boolean | undefined>) => void,
-    inGrid: boolean
-) => inGrid && setIsExpanded(false);
+    fullWidth: boolean
+) => fullWidth && setIsExpanded(false);
 
 const Poster: FunctionComponent<PosterTypes> = ({
     expanded,
-    expandedBgColor,
     metadata,
     width,
-    inGrid = false
+    fullWidth
 }) => {
     const [isExpanded, setIsExpanded] = useState(expanded);
 
@@ -41,36 +39,29 @@ const Poster: FunctionComponent<PosterTypes> = ({
 
     const { title, overview, poster, expandedBackground } = metadata;
 
-    return (
-        <StyledPosterWrapper expanded={isExpanded} width={width}>
-            <StyledPoster
-                expanded={isExpanded}
-                inGrid={inGrid}
-                expandedBgColor={expandedBgColor}
-                onMouseEnter={() => handleMouseEnter(setIsExpanded, inGrid)}
-                onMouseLeave={() => handleMouseLeave(setIsExpanded, inGrid)}
-            >
-                {/* <StyledBackgroundWrapper>
-                <StyledBackground poster={poster} expanded={expanded} />
-            </StyledBackgroundWrapper> */}
-                <StyledBackgroundWrapper>
-                    <StyledBackground
-                        src={isExpanded ? expandedBackground : poster}
-                    />
-                </StyledBackgroundWrapper>
-                <StyledMetadata expanded={isExpanded} inGrid={inGrid}>
-                    <Heading color="white" weight="bold">
-                        {title}
-                    </Heading>
-                    <Text color="white">{overview}</Text>
-                </StyledMetadata>
-            </StyledPoster>
+    useEffect(() => {
+        setIsExpanded(expanded);
+    }, [expanded]);
 
-            {/* {isExpanded && (
-                <StyledMoreInfo>
-                    <div>HERE!</div>
-                </StyledMoreInfo>
-            )} */}
+    return (
+        <StyledPosterWrapper
+            expanded={isExpanded}
+            width={width}
+            fullWidth={fullWidth}
+        >
+            <StyledPosterContainer expanded={isExpanded}>
+                <StyledPoster>
+                    <img
+                        src={expanded ? expandedBackground : poster}
+                        alt="test"
+                    />
+
+                    <StyledMetadata>
+                        <Heading>{title}</Heading>
+                        <Text>{overview}</Text>
+                    </StyledMetadata>
+                </StyledPoster>
+            </StyledPosterContainer>
         </StyledPosterWrapper>
     );
 };

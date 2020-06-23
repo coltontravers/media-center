@@ -8,22 +8,6 @@ import {
     StyledMetadata,
     StyledPoster
 } from "./Poster.styled";
-import debounce from "../../helpers/debounce";
-
-const handleMouseEnter = debounce(
-    (
-        setIsExpanded: (
-            value: React.SetStateAction<boolean | undefined>
-        ) => void,
-        fullWidth: boolean
-    ) => fullWidth && setIsExpanded(true),
-    300
-);
-
-const handleMouseLeave = (
-    setIsExpanded: (value: React.SetStateAction<boolean | undefined>) => void,
-    fullWidth: boolean
-) => fullWidth && setIsExpanded(false);
 
 const Poster: FunctionComponent<PosterTypes> = ({
     expanded,

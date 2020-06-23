@@ -5,7 +5,6 @@ export const StyledMetadata = styled.div`
     display: none;
     width: 50%;
 `;
-
 export const StyledPosterWrapper = styled.div<posterTypes>`
     width: ${({ width, fullWidth }) => (fullWidth ? "100%" : width)};
     ${({ expanded, width, fullWidth }) =>

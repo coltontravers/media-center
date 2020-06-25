@@ -73,6 +73,7 @@ export const StyledSidebar = styled(Flex)<StyledSidebarProps>`
         `;
     }}
     background: ${colors.gray.dark};
+    transition: .2s cubic-bezier(.13,.68,.83,.67) width,max-width,min-width;
 `;
 
 export const StyledLibrary = styled.div`

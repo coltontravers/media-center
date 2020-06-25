@@ -73,6 +73,9 @@ export const Sidebar: FunctionComponent = () => {
                     Recently Played
                 </Button>
                 <Button background="transparent" fullWidth weight="bold">
+                    Playlists
+                </Button>
+                <Button background="transparent" fullWidth weight="bold">
                     Recommended
                 </Button>
 

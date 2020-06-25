@@ -14,6 +14,7 @@ export const StyledButton = styled(Button)<StyledButtonProps>`
         isActive &&
         `
         color: ${colors.secondary.dark};
+        box-shadow: inset 15px 0px 29px -11px ${colors.secondary.normal};
 
         ::before {
             content: "";

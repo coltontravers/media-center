@@ -1,0 +1,19 @@
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { text, color } from "@storybook/addon-knobs";
+import Badge from "./Badge";
+
+<Meta title="Badge" component={Badge} />
+
+<Preview>
+    <Story name="default">
+        <Badge
+            label={text("label", "30")}
+            backgroundColor={color("background color")}
+            textColor={color("text color")}
+        />
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Badge} />

@@ -1,6 +1,13 @@
-import React, { FunctionComponent } from "react";
-import { Movie, Tv, Home } from "@styled-icons/boxicons-regular";
+import React, { FunctionComponent, useState } from "react";
+import {
+    Movie,
+    Tv,
+    Home,
+    ArrowFromRight,
+    ArrowFromLeft
+} from "@styled-icons/boxicons-regular";
 import { SettingsOutline } from "@styled-icons/evaicons-outline";
+import browerStorageKeys from "../../constants/browserStorage";
 import {
     StyledSidebar,
     StyledLibrary,
@@ -9,10 +16,31 @@ import {
     StyledFooter
 } from "./Sidebar.styled";
 import Button from "../Button/Button";
+import convertStringToBoolean from "../../helpers/convertStringToBoolean";
+
+const onToggleSidebarClick = (
+    isOpen: boolean,
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+    const toggledState = !isOpen;
+
+    localStorage.setItem(
+        browerStorageKeys.sidebar.open,
+        toggledState.toString()
+    );
+
+    setIsOpen(toggledState);
+};
 
 export const Sidebar: FunctionComponent = () => {
+    const [isOpen, setIsOpen] = useState<boolean>(
+        convertStringToBoolean(
+            localStorage.getItem(browerStorageKeys.sidebar.open)
+        )
+    );
+
     return (
-        <StyledSidebar>
+        <StyledSidebar isOpen={isOpen}>
             <StyledLibrary>
                 <StyledButton
                     background="transparent"
@@ -21,7 +49,7 @@ export const Sidebar: FunctionComponent = () => {
                     isActive
                     icon={<Home />}
                 >
-                    Home
+                    {isOpen && "Home"}
                 </StyledButton>
                 <StyledButton
                     background="transparent"
@@ -29,7 +57,7 @@ export const Sidebar: FunctionComponent = () => {
                     weight="extraBold"
                     icon={<Movie />}
                 >
-                    Movies
+                    {isOpen && "Movies"}
                 </StyledButton>
                 <StyledButton
                     background="transparent"
@@ -37,7 +65,7 @@ export const Sidebar: FunctionComponent = () => {
                     weight="extraBold"
                     icon={<Tv />}
                 >
-                    Tv Shows
+                    {isOpen && "Tv Shows"}
                 </StyledButton>
             </StyledLibrary>
             <StyledBottom>
@@ -52,6 +80,27 @@ export const Sidebar: FunctionComponent = () => {
                     <Button background="transparent" hoverShadow={false}>
                         <SettingsOutline size="35" />
                     </Button>
+                    {isOpen ? (
+                        <Button
+                            onClick={() =>
+                                onToggleSidebarClick(isOpen, setIsOpen)
+                            }
+                            background="transparent"
+                            hoverShadow={false}
+                        >
+                            <ArrowFromRight size="35" />
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={() =>
+                                onToggleSidebarClick(isOpen, setIsOpen)
+                            }
+                            background="transparent"
+                            hoverShadow={false}
+                        >
+                            <ArrowFromLeft size="35" />
+                        </Button>
+                    )}
                 </StyledFooter>
             </StyledBottom>
         </StyledSidebar>

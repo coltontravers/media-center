@@ -22,14 +22,14 @@ const generateButtonChildren = ({
         return (
             <>
                 {Icon}
-                <span>{children}</span>
+                {children && <span>{children}</span>}
             </>
         );
     }
 
     return (
         <>
-            <span>{children}</span>
+            {children && <span>{children}</span>}
             {Icon}
         </>
     );

@@ -1,9 +1,10 @@
-import { ReactNode } from "react";
+import { ReactNode, HTMLAttributes } from "react";
 import { buttonSizes, buttonThemes } from "../../constants/button";
 import { colorsTypesWithString } from "../../constants/colors";
 import weights from "../../constants/weights";
 
-export default interface ButtonTypes {
+export default interface ButtonTypes
+    extends Omit<HTMLAttributes<HTMLButtonElement>, "size" | "as"> {
     isLoading?: boolean;
     width?: string;
     minWidth?: string | false;

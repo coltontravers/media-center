@@ -11,6 +11,7 @@ const defaultColors = {
 export const colors = {
     white: "#ffffff",
     black: "#000000",
+    transparent: "transparent",
     warning: "orange",
     success: "green",
     gray: {
@@ -43,6 +44,7 @@ export const colors = {
 export type colorsTypes =
     | "white"
     | "black"
+    | "transparent"
     | "warning"
     | "success"
     | "gray.light"

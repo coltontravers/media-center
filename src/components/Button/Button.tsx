@@ -4,15 +4,43 @@ import React, {
     useState,
     useLayoutEffect
 } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Spinner } from "@styled-icons/fa-solid";
 import ButtonTypes, { defaultProps } from "./buttonTypes";
 import { StyledButton } from "./Button.styled";
+
+const generateButtonChildren = ({
+    isLoading,
+    icon: Icon,
+    iconPlacement,
+    children
+}: ButtonTypes) => {
+    if (isLoading) {
+        return <Spinner />;
+    }
+
+    if (Icon && iconPlacement === "left") {
+        return (
+            <>
+                {Icon}
+                <span>{children}</span>
+            </>
+        );
+    }
+
+    return (
+        <>
+            <span>{children}</span>
+            {Icon}
+        </>
+    );
+};
 
 export const Button: FunctionComponent<ButtonTypes> = ({
     isLoading,
     disabled,
     round,
+    icon,
+    iconPlacement,
     children,
     ...restProps
 }) => {
@@ -34,7 +62,12 @@ export const Button: FunctionComponent<ButtonTypes> = ({
             minWidth={isLoading && itemWidth}
             round={round}
         >
-            {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : children}
+            {generateButtonChildren({
+                isLoading,
+                icon,
+                iconPlacement,
+                children
+            })}
         </StyledButton>
     );
 };

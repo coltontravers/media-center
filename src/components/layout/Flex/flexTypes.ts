@@ -28,10 +28,10 @@ const FlexWrap = {
 };
 
 export default interface FlexTypes {
-    direction: keyof typeof FlexDirections;
-    alignItems: keyof typeof AlignItems;
-    alignContent: keyof typeof AlignContent;
-    wrap: keyof typeof FlexWrap;
+    direction?: keyof typeof FlexDirections;
+    alignItems?: keyof typeof AlignItems;
+    alignContent?: keyof typeof AlignContent;
+    wrap?: keyof typeof FlexWrap;
     children: ReactNode;
 }
 

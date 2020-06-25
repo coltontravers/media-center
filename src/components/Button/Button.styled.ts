@@ -5,8 +5,11 @@ import boxShadows from "../../constants/boxShadows";
 import splitColorKeys from "../../helpers/splitColorKeys";
 import { buttonThemes, buttonSizes } from "../../constants/button";
 import ButtonTypes from "./buttonTypes";
+import gutters from "../../constants/gutters";
+import weights from "../../constants/weights";
 
 export const StyledButton = styled.button<ButtonTypes>`
+    display: flex;
     ${({ size }) => buttonSizes[size as keyof typeof buttonSizes]};
     background: ${({ background, theme }) =>
         background ||
@@ -15,7 +18,10 @@ export const StyledButton = styled.button<ButtonTypes>`
     width: ${({ fullWidth, width }) => (fullWidth ? "100%" : width)};
     min-width: ${({ minWidth }) => minWidth};
     border-radius: ${({ round }) => round && "25px"};
+    font-weight: ${({ weight }) => weights[weight as keyof typeof weights]};
     border: none;
+    justify-content: center;
+    align-items: center;
     font-family: inherit;
     font-size: 100%;
     line-height: 1.15;
@@ -23,6 +29,7 @@ export const StyledButton = styled.button<ButtonTypes>`
     -webkit-appearance: button;
     transition: all 0.15s ease-in-out;
     outline: none;
+    word-break: break-all;
 
     :hover {
         cursor: pointer;
@@ -34,12 +41,19 @@ export const StyledButton = styled.button<ButtonTypes>`
                 background ||
                     buttonThemes[theme as keyof typeof buttonThemes].background
             )};
-        box-shadow: ${boxShadows.normal.medium};
+        box-shadow: ${({ hoverShadow }) =>
+            hoverShadow && boxShadows.normal.medium};
     }
 
     :disabled {
         filter: grayscale(70%);
         cursor: default;
         box-shadow: none;
+    }
+
+    > svg {
+        height: 1rem;
+        width: auto;
+        margin: 0 ${gutters.half};
     }
 `;

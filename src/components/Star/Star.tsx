@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Star as StarIcon } from "@styled-icons/boxicons-regular";
 import StarTypes, { defaultProps } from "./starTypes";
 import { StyledStar } from "./Star.styled";
 
@@ -13,7 +12,7 @@ const Star: FunctionComponent<StarTypes> = ({
     return (
         <>
             <StyledStar>
-                <FontAwesomeIcon icon={faStar} size={size} />
+                <StarIcon size={size} />
             </StyledStar>
 
             {/* Ugly, but this is for applying a linear gradient as a background/fill to the svg */}

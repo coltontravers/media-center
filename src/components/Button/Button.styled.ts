@@ -30,6 +30,7 @@ export const StyledButton = styled.button<ButtonTypes>`
     transition: all 0.15s ease-in-out;
     outline: none;
     word-break: break-all;
+    position: relative;
 
     :hover {
         cursor: pointer;

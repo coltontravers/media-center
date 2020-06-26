@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import BadgeTypes, { defaultProps } from "./badgeTypes";
 import { StyledBadge } from "./Badge.styled";
 
-const Carousel: FunctionComponent<BadgeTypes> = ({ label, ...restProps }) => {
+const Badge: FunctionComponent<BadgeTypes> = ({ label, ...restProps }) => {
     return (
         <StyledBadge {...restProps}>
             <span>{label}</span>
@@ -10,6 +10,6 @@ const Carousel: FunctionComponent<BadgeTypes> = ({ label, ...restProps }) => {
     );
 };
 
-Carousel.defaultProps = defaultProps;
+Badge.defaultProps = defaultProps;
 
-export default Carousel;
+export default Badge;

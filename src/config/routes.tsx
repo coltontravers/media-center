@@ -1,4 +1,5 @@
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { Home as HomeIcon } from "@styled-icons/boxicons-regular";
 import Home from "../pages/Home/Home";
 
 const routes = [
@@ -8,7 +9,7 @@ const routes = [
         description: "Home",
         component: Home,
         sidebarEnabled: true,
-        icon: faHome,
+        icon: <HomeIcon />,
         exact: true
     }
 ];

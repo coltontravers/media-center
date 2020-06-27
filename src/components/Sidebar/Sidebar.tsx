@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useContext } from "react";
 import {
     Movie,
     Tv,
@@ -17,6 +17,7 @@ import {
 } from "./Sidebar.styled";
 import Button from "../Button/Button";
 import convertStringToBoolean from "../../helpers/convertStringToBoolean";
+import AppContext from "../../state/AppState";
 
 const onToggleSidebarClick = (
     isOpen: boolean,
@@ -39,8 +40,10 @@ export const Sidebar: FunctionComponent = () => {
         )
     );
 
+    const { state } = useContext(AppContext);
+
     return (
-        <StyledSidebar isOpen={isOpen}>
+        <StyledSidebar isOpen={isOpen} state={state}>
             <StyledLibrary>
                 <StyledButton
                     background="transparent"

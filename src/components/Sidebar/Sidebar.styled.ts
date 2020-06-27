@@ -3,9 +3,16 @@ import Flex from "../layout/Flex/Flex";
 import colors from "../../constants/colors";
 import Button from "../Button/Button";
 import ButtonTypes from "../Button/buttonTypes";
+import { mediaQueriesMaxWidth } from "../../constants/mediaQueries";
+import { InitialStateType } from "../../state/AppState";
 
 interface StyledButtonProps extends ButtonTypes {
     isActive?: boolean;
+}
+
+interface StyledSidebarProps {
+    isOpen: boolean;
+    state: InitialStateType;
 }
 
 export const StyledButton = styled(Button)<StyledButtonProps>`
@@ -44,10 +51,6 @@ export const StyledFooter = styled.div`
     justify-content: space-between;
 `;
 
-interface StyledSidebarProps {
-    isOpen: boolean;
-}
-
 export const StyledSidebar = styled(Flex)<StyledSidebarProps>`
     ${({ isOpen }) => {
         return isOpen
@@ -75,6 +78,11 @@ export const StyledSidebar = styled(Flex)<StyledSidebarProps>`
     }}
     background: ${colors.gray.dark};
     transition: .2s cubic-bezier(.13,.68,.83,.67) width,max-width,min-width;
+
+    ${({ state }) => {
+        return mediaQueriesMaxWidth.medium(`
+            ${state.mobileSidebarOpen ? `display: block` : `display: none`}`);
+    }}
 `;
 
 export const StyledLibrary = styled.div`

@@ -54,6 +54,6 @@ module.exports = {
         },
         stats: "minimal",
         noInfo: true,
-        host: "127.0.0.1"
+        host: "0.0.0.0"
     }
 };

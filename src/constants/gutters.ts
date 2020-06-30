@@ -1,13 +1,13 @@
-import valueToPx from "../helpers/valueToPoint";
+import { valueToEm } from "../helpers/valueToPoint";
 
-const defaultGutter = 30;
+const defaultGutter = 1;
 
 export const gutters = {
-    oneThird: valueToPx(defaultGutter * 0.2),
-    half: valueToPx(defaultGutter * 0.5),
-    twoThirds: valueToPx(defaultGutter * 0.66),
-    full: valueToPx(defaultGutter),
-    double: valueToPx(defaultGutter * 2)
+    oneThird: valueToEm(defaultGutter * 0.2),
+    half: valueToEm(defaultGutter * 0.5),
+    twoThirds: valueToEm(defaultGutter * 0.66),
+    full: valueToEm(defaultGutter),
+    double: valueToEm(defaultGutter * 2)
 };
 
 export default gutters;

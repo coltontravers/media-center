@@ -1,0 +1,29 @@
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { boolean, color, text, select } from "@storybook/addon-knobs";
+import { fontSizes } from "../../../constants/typography";
+import { iconPlacementOptions } from "./searchTypes.ts";
+import Search from "./Search.tsx";
+
+<Meta title="Search" component={Search} />
+
+<Preview>
+    <Story name="default">
+        <Search
+            iconPlacement={select(
+                "icon placement",
+                iconPlacementOptions,
+                "left",
+                ""
+            )}
+            background={color("background")}
+            fullWidth={boolean("full width", false)}
+            fontSize={select("font size", Object.keys(fontSizes), "medium", "")}
+            placeholder={text("placeholder", "search something...")}
+            round={boolean("round", false)}
+        />
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Search} />

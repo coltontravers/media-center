@@ -55,25 +55,25 @@ export const StyledSidebar = styled(Flex)<StyledSidebarProps>`
     ${({ isOpen }) => {
         return isOpen
             ? `
-        width: 15vw;
-        min-width: 150px;
-        max-width: 300px;
-        `
+                width: 15vw;
+                min-width: 150px;
+                max-width: 300px;
+                `
             : `
-        width: 7vw;
-        min-width: 80px;
-        max-width: 100px;
+                width: 7vw;
+                min-width: 80px;
+                max-width: 100px;
 
-        ${StyledButton} {
-            svg {
-                height: 1.5rem;
-                width: 100%;
-            }
-        }
+                ${StyledButton} {
+                    svg {
+                        height: 1.5rem;
+                        width: 100%;
+                    }
+                }
 
-        ${StyledFooter} {
-            justify-content: center;
-        }
+                ${StyledFooter} {
+                    justify-content: center;
+                }
         `;
     }}
     background: ${colors.gray.dark};
@@ -81,7 +81,14 @@ export const StyledSidebar = styled(Flex)<StyledSidebarProps>`
 
     ${({ state }) => {
         return mediaQueriesMaxWidth.medium(`
-            ${state.mobileSidebarOpen ? `display: block` : `display: none`}`);
+            ${state.mobileSidebarOpen ? `display: block` : `display: none`};
+
+            ${StyledFooter} {
+                button:last-of-type {
+                    display: none;
+                }
+            }
+        `);
     }}
 `;
 
